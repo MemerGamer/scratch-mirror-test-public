@@ -1,0 +1,11 @@
+name: tag probe
+on:
+  push:
+    tags: ['probe-*']
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "tag=${GITHUB_REF} sha=${GITHUB_SHA} actor=${GITHUB_ACTOR} event=${GITHUB_EVENT_NAME}"
